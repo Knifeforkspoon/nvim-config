@@ -13,5 +13,8 @@ vim.g.netrw_banner = 0
 -- Load plugins with lazy
 require('plugins')
 
--- Load Lua general settings
-require('init')
+-- Load core lua settings
+require('core')
+
+-- Load lsp settings
+require('lsp')

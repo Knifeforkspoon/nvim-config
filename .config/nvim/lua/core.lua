@@ -1,5 +1,6 @@
 require('core.settings')
 require('core.filetypes')
 require('core.mappings')
+require('core.mappings-lsp')
 require('core.neovim')
 require('core.undo')
