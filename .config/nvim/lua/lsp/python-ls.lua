@@ -6,11 +6,8 @@ if python_project then
   local version = vim.fn.readfile('.python-version')[1]:gsub('%s+ ', '')
   local site_packages = '.venv/lib/python' .. version .. '/site-packages'
 
-  print("python_path: " .. "" .. python_path)
-  print("version: " .. "" .. version)
-  print("site_packages: " .. "" .. site_packages)
-
   vim.lsp.config.pyright =  {
+    filetypes = {'python'},
     root_markers = { "pyproject.yaml", ".git", "." },
     cmd = { "pyright-langserver", "--stdio" },
     settings = {

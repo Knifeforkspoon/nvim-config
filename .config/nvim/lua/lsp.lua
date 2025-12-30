@@ -4,6 +4,7 @@ require('lsp.python-ls')
 require('lsp.typescript-ls')
 require('lsp.svelte-ls')
 require('lsp.yaml')
+require('lsp.postgres-ls')
 
 vim.lsp.enable(
   {
@@ -11,6 +12,7 @@ vim.lsp.enable(
     "lua",
     "typescript",
     "svelte",
-    "yaml"
+    "yaml",
+    "postgres_lsp"
   }
 )
