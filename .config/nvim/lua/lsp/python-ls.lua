@@ -20,6 +20,9 @@ if python_project then
           extraPaths = { site_packages },
           include = { "src", "tests" },
           typeCheckingMode = "basic",
+          diagnosticSeverityOverrides = {
+            reportMissingArgument = "warn",
+          },
         }
       }
     }

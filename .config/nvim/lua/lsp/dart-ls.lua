@@ -3,7 +3,7 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Flutter-specific on_attach: Only add Flutter commands if it's a Flutter project
 -- Configure Dart LSP for Flutter
-vim.lsp.config.dartls = {
+vim.lsp.config.dart = {
   cmd = { 'dart', 'language-server', '--protocol=lsp' },
   capabilities = capabilities,
   on_attach = function(client, bufnr)

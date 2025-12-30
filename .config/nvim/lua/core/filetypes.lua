@@ -81,7 +81,13 @@ vim.api.nvim_create_autocmd('FileType', {
   end
 })
 
+
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-  pattern = '*.vue',
+  pattern = { '*.svelte' },
+  command = 'setfiletype svelte'
+})
+
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+  pattern = { 'vue', 'htm', 'html' },
   command = 'setfiletype html'
 })
