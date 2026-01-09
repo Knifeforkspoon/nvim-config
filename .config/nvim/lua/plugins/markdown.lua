@@ -15,9 +15,7 @@ return {
       vim.g.mkdp_refresh_slow = 0  -- Refresh on save and leaving insert mode
       vim.g.mkdp_browser = ""  -- Use default browser
       vim.g.mkdp_echo_preview_url = 1  -- Echo preview URL when opened
-      
       -- MermaidJS and other diagram support is enabled by default
-      
       -- Custom CSS for diagrams
       vim.g.mkdp_markdown_css = ""
       vim.g.mkdp_highlight_css = ""
@@ -37,7 +35,6 @@ return {
         custom_css = ".markdown-body pre.mermaid { zoom: 1.5; } /* Make diagrams 50% larger */",
         custom_js = "document.addEventListener('wheel', function(e) { if (e.ctrlKey) { e.preventDefault(); var mermaidDiagrams = document.querySelectorAll('.mermaid'); mermaidDiagrams.forEach(function(diagram) { var currentZoom = parseFloat(diagram.style.zoom || 1); if (e.deltaY < 0) { diagram.style.zoom = (currentZoom * 1.1); } else { diagram.style.zoom = (currentZoom * 0.9); } }); } }, { passive: false });"
       }
-      
       -- Custom mappings for markdown preview
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
