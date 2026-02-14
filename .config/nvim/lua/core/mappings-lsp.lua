@@ -3,7 +3,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp.global', {}),
   callback = function(args)
     local bufnr = args.buf
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
     local buf_set_keymap = vim.api.nvim_buf_set_keymap
     local opts = { noremap = true, silent = true }
 

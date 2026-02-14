@@ -1,6 +1,3 @@
--- Neovim-specific settings
-local shared_directory = vim.g.shared_directory
-
 -- Smaller updatetime for CursorHold (default is 4000ms)
 vim.opt.updatetime = 300
 
@@ -73,10 +70,25 @@ vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { silent = true })
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { silent = true })
 
 -- Highlight lines with only spaces
-vim.keymap.set('n', 'hs', function() vim.cmd([[match ErrorMsg /^\s+$/]]) end)
---
--- Delete lines with only spaces
-vim.keymap.set('n', 'ds', ':%s/^\\s\\+$//g')
+local function highlight_whitespace_lines()
+  vim.cmd('match ErrorMsg /\\s\\+$/')
+end
+
+vim.keymap.set('n', '<leader>hs', highlight_whitespace_lines, { silent = true })
+
+vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter', 'InsertLeave'}, {
+  pattern = '*',
+  callback = highlight_whitespace_lines
+})
+
+vim.api.nvim_create_autocmd({'WinLeave', 'BufLeave', 'InsertEnter'}, {
+  pattern = '*',
+  callback = function()
+    vim.cmd('match none')
+  end
+})
+
+vim.keymap.set('n', '<leader>ds', '<cmd>%s/\\s\\+$//ge<CR>', { silent = true })
 
 -- Better split management
 vim.opt.splitright = true

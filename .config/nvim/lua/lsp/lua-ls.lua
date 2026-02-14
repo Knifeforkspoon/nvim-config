@@ -13,6 +13,7 @@ vim.lsp.config.lua = {
       diagnostics = {
         -- Recognize `vim` as a global
         globals = { "vim" },
+        disable = { "trailing-space" }
       },
       workspace = {
         -- Make the server aware of Neovim runtime files

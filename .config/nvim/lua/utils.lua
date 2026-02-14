@@ -12,14 +12,13 @@ function M.is_python_project()
         "manage.py",
         "uv.lock"
     }
-    
+
     -- Get the current working directory of Neovim
     local current_dir = vim.fn.getcwd()
 
     for _, filename in ipairs(python_project_files) do
         -- CRITICAL: Concatenate the path to create a full file path
-        local full_path = current_dir .. "/" .. filename 
-        
+        local full_path = current_dir .. "/" .. filename
         -- Check if the file exists at the full path
         if vim.loop.fs_stat(full_path) ~= nil then
             return true
