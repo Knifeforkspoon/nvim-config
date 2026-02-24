@@ -14,24 +14,6 @@ function ToggleCmdHeight()
 end
 vim.api.nvim_set_keymap('n','<leader>tc', ':lua ToggleCmdHeight()<CR>', { noremap =true })
 
--- Uncomment to enable Copilot toggle
--- vim.keymap.set('n', '<C-c-t>', ':call ToggleCopilot()<CR>')
--- vim.keymap.set('i', '<C-c-t>', '<Esc>:call ToggleCopilot()<CR>a')
-
--- mini.files mappings
---[[
-vim.keymap.set('n', '<leader>n', function() require("mini.files").open() end, { desc = 'Toggle mini.files' })
-vim.keymap.set('n', '<leader>nf', function()
-  local buf_name = vim.api.nvim_buf_get_name(0)
-  if buf_name and buf_name ~= "" then
-    require("mini.files").open(buf_name)
-  else
-    require("mini.files").open()
-  end
-end, { desc = 'Find current file in mini.files' })
-vim.keymap.set('n', '<C-n>', function() require("mini.files").open() end, { desc = 'Toggle mini.files' })
---]]
-
 -- FZF-Lua mappings
 vim.keymap.set('n', '<leader>ff', '<cmd>lua require("fzf-lua").files()<CR>', { desc = 'Find files' })
 vim.keymap.set('n', '<leader>fg', '<cmd>lua require("fzf-lua").live_grep()<CR>', { desc = 'Live grep' })

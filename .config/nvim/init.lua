@@ -1,6 +1,6 @@
 vim.g.mapleader = ' '
 
-local shared_directory = vim.fn.expand("~/.local/share/nvim/site")
+local shared_directory = vim.fn.expand("~/.nvim")
 vim.g.shared_directory = shared_directory
 
 -- Completely disable netrw
