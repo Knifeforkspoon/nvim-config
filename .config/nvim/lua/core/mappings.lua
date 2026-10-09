@@ -1,7 +1,16 @@
 -- Key mappings
 
 -- Reload Neovim configuration
-vim.keymap.set('n', '<leader>sv', ':source $MYVIMRC<CR>', { desc = 'Reload Neovim config' })
+vim.keymap.set('n', '<leader>sv', function()
+  -- Clear Lua package cache
+  for module, _ in pairs(package.loaded) do
+    if module:match('^user') or module:match('^my') then
+      package.loaded[module] = nil
+    end
+  end
+  -- Reload config
+  vim.cmd('source $MYVIMRC')
+end, { desc = 'Reload Neovim config' })
 
 -- Search for visually selected text
 vim.keymap.set('v', '//', 'y/<C-R>"<CR>')

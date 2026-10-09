@@ -69,26 +69,11 @@ vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { silent = true })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { silent = true })
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { silent = true })
 
--- Highlight lines with only spaces
-local function highlight_whitespace_lines()
-  vim.cmd('match ErrorMsg /\\s\\+$/')
-end
+-- Delete trailing whitespace
+vim.keymap.set('n', '<leader>dw', '<cmd>%s/\\s\\+$//ge<CR>', { silent = true, desc = "Delete trailing whitespace" })
 
-vim.keymap.set('n', '<leader>hs', highlight_whitespace_lines, { silent = true })
-
-vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter', 'InsertLeave'}, {
-  pattern = '*',
-  callback = highlight_whitespace_lines
-})
-
-vim.api.nvim_create_autocmd({'WinLeave', 'BufLeave', 'InsertEnter'}, {
-  pattern = '*',
-  callback = function()
-    vim.cmd('match none')
-  end
-})
-
-vim.keymap.set('n', '<leader>ds', '<cmd>%s/\\s\\+$//ge<CR>', { silent = true })
+-- Show diagnostics (using Snacks)
+-- Moved to plugins/snacks.lua
 
 -- Better split management
 vim.opt.splitright = true

@@ -1,5 +1,5 @@
 vim.lsp.config.typescript = {
-  cmd = { "typescript-language-server", "--stdio" },
+  cmd = { "tsc", "--lsp", "--stdio" },
   filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
   root_markers = { "package.json", "tsconfig.json", ".git" },
   settings = {

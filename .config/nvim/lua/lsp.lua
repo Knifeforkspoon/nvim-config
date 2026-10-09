@@ -5,7 +5,9 @@ require('lsp.typescript-ls')
 require('lsp.svelte-ls')
 require('lsp.yaml')
 require('lsp.postgres-ls')
+require('lsp.sqlite-ls')
 require('lsp.php-ls')
+require('lsp.rust-ls')
 
 vim.lsp.enable(
   {
@@ -15,6 +17,8 @@ vim.lsp.enable(
     "svelte",
     "yaml",
     "postgres_lsp",
+    "sqlite_lsp",
     "phpactor",
+    "rust",
   }
 )

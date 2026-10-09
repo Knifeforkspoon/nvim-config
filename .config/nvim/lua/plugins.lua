@@ -18,10 +18,12 @@ require("lazy").setup({
     { import = "plugins.core" },
     { import = "plugins.ui" },
     { import = "plugins.completion" },
-    { import = "plugins.lsp" },
+    -- { import = "plugins.lsp" },
     { import = "plugins.syntax" },
     { import = "plugins.editor" },
     { import = "plugins.markdown" },
     { import = "plugins.snacks" },
+    { import = "plugins.indent-blankline" },
+    { import = "plugins.pi-nvim" },
   },
 })
