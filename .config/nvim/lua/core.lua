@@ -1,5 +1,5 @@
 require('core.settings')
-require('core.filetypes')
+require('core.project')
 require('core.mappings')
 require('core.mappings-lsp')
 require('core.neovim')
