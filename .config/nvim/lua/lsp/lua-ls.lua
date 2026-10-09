@@ -9,7 +9,7 @@ vim.lsp.config('lua', {
         path = vim.split(package.path, ";"),
       },
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim", "Snacks" },
         disable = { "trailing-space" }
       },
       workspace = {
